@@ -38,7 +38,8 @@ commit;
 rollback;
 /***DELETE***********/
 DELETE guestbook
-WHERE password = 1234;
+WHERE password = 1234
+and no = 1;
 commit;
 rollback;
 /***like*************/

@@ -138,5 +138,44 @@ public class GuestbookDao {
 		close();
 		return count;
 		
-	}
+	}//Delete
+	// 비밀번호확인
+	public GuestVo checkPassword(int guestNo) {
+		getDriver();
+		GuestVo guestVo = null;
+		try {
+		String query = "";
+		query += " SELECT no, ";
+		query += "        name,  ";
+		query += "        password, ";
+		query += "        content, ";
+		query += "        reg_date ";
+		query += " FROM guestbook ";
+		query += " where no = ? ";
+		pstmt = conn.prepareStatement(query);
+		pstmt.setInt(1, guestNo);
+		
+		//업데이트 후에 쿼리문을 리서트셋에 넣어줘야했다..
+		pstmt.executeUpdate();
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			int no =rs.getInt("no");
+			String name = rs.getString("name");
+			String password = rs.getString("password");
+			String content = rs.getString("content");
+			String date = rs.getString("reg_date");
+			
+			guestVo  = new GuestVo(no,name,password,content,date);
+		}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		close();
+		return guestVo;
+		
+	}//checkPassword
 }
