@@ -3,6 +3,7 @@
 <%@ page import = "com.javaex.guestvo.GuestVo" %>
 <%@ page import = "com.javaex.guestdao.GuestbookDao" %>
 <%
+		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		String passWord = request.getParameter("password");
 		String content = request.getParameter("content");

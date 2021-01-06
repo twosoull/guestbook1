@@ -18,7 +18,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "add.jsp" method = "host">
+	<form action = "add.jsp" method = "post">
 	<table border = "1">
 		<tr>
 			<td>이름</td>

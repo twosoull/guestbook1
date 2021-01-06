@@ -3,7 +3,7 @@
 <%@ page import = "com.javaex.guestdao.GuestbookDao" %>
 <%@ page import = "com.javaex.guestvo.GuestVo" %>
 <%
-
+	request.setCharacterEncoding("UTF-8");
 	//파라미터 받기
 	String password = request.getParameter("password");
 	int no = Integer.parseInt(request.getParameter("no"));
